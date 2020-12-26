@@ -8,9 +8,9 @@ import { useContext } from "react";
 
 export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
-  console.log(process.env.BASE_URL);
+  // console.log(process.env.BASE_URL);
   try{
-    const data = await fetch(URLS.PROD+'/api/blog',{
+    const data = await fetch(URLS.USE+'/api/blog',{
       method:"POST",
       headers:{
         'Content-type':'application/json'

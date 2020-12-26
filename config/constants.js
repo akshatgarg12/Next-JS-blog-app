@@ -1,6 +1,7 @@
 export const URLS = {
   DEV:"http://localhost:3000",
-  PROD:"https://next-js-blog-app-oipvo0xie.vercel.app"
+  PROD:`https://${process.env.VERCEL_URL}`,
+  USE:process.env.NODE_ENV === "development" ? "http://localhost:3000" : `https://${process.env.VERCEL_URL}`
 }
 export const THEME = {
   dark:{

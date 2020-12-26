@@ -8,7 +8,7 @@ import { useContext } from 'react';
 export const getStaticProps = async () =>{
   console.log(process.env.VERCEL_URL);
   try{
-    const data = await fetch(URLS.PROD+'/api/allposts').then(j => j.json());
+    const data = await fetch(URLS.USE+'/api/allposts').then(j => j.json());
     const posts =  data.map((post) => {
       const postObject = {
         id : post.sys.id,

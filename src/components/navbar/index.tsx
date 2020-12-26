@@ -20,7 +20,7 @@ import {ThemeContext} from '../../context/theme';
   const {theme,isLight, setIsLight} = useContext(ThemeContext);
   return (
     <div>
-      <Navbar color={isLight?"light":"dark"} light expand="md">
+      <Navbar color={isLight?"light":"dark"}  expand="md">
         <NavbarBrand onClick={()=> router.push('/')} 
         className={`navbar-logo text-${isLight?"dark":"light"}`}>Blogger</NavbarBrand>
         <NavbarToggler onClick={toggle} />
