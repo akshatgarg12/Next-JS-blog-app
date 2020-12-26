@@ -1,10 +1,11 @@
 import MyCard from '../src/components/card';
 import { Container, Row, Col } from 'reactstrap';
-
+const fetch = require('node-fetch');
+import {URLS} from '../config/constants';
 export const getStaticProps = async () =>{
-  console.log(process.env.BASE_URL)
+  console.log(process.env.VERCEL_URL);
   try{
-    const data = await fetch(`https://${process.env.VERCEL_URL}/api/allposts`).then(j => j.json());
+    const data = await fetch(URLS.PROD+'/api/allposts').then(j => j.json());
     const posts =  data.map((post) => {
       const postObject = {
         id : post.sys.id,

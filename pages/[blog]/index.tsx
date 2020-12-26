@@ -2,12 +2,12 @@ import { GetStaticProps,GetStaticPaths } from "next";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Image from 'next/image';
 import { Container } from "reactstrap";
-
+import {URLS} from '../../config/constants';
 export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
   console.log(process.env.BASE_URL);
   try{
-    const data = await fetch(`https://${process.env.VERCEL_URL}/api/blog`,{
+    const data = await fetch(URLS.PROD+'/api/blog',{
       method:"POST",
       headers:{
         'Content-type':'application/json'
