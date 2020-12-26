@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import Card from '../src/components/Card/index';
+import Card from '../src/components/Card';
 import { Container, Row, Col ,CardColumns,} from 'reactstrap';
 
 export const getStaticProps:GetStaticProps = async () =>{
