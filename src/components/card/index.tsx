@@ -9,7 +9,7 @@ export interface CardProps{
   date:string
 }
 
-const MyCard = ({id,img,title,date}:CardProps) => {
+const MyCard: React.FC<CardProps> = ({id,img,title,date}) => {
   const router = useRouter();
   return (
     <div className="card-div">
