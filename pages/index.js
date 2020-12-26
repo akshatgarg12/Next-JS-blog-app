@@ -1,8 +1,7 @@
-import { GetStaticProps } from 'next';
 import MyCard from '../src/components/Card';
 import { Container, Row, Col } from 'reactstrap';
 
-export const getStaticProps:GetStaticProps = async () =>{
+export const getStaticProps = async () =>{
   console.log(process.env.BASE_URL)
   try{
     const data = await fetch(`${process.env.BASE_URL}/api/allposts`).then(j => j.json());
