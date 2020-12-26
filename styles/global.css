@@ -1,44 +1,31 @@
 body{
   font-family: 'Roboto';
   font-size: 1.2rem;
-  /* text-align: justify; */
   width: 100%;
   overflow-x: hidden;
   padding: 0;
   margin: 0;
 }
 img{
-  height:auto;
-  width: auto;
   max-width: 100%;
 }
-.blog{
-  width: 60%;
-  margin: auto;
-}
-.card{
-  width: 300px;
-  height: auto;
-  padding:20px;
-}
-a{
-  text-emphasis: none;
-  color:#fff;
-  text-decoration:wavy;
-}
 .grid-div{
-  min-height: 90vh;
-  margin: auto;
-  background-color: black;
-  margin-bottom: 0;
-}
-.footer{
-  background-color: #272727;
+  margin:auto;
   padding:10px;
-  margin: auto;
-  text-align: center;
-  font-size: 1rem;
 }
-.footer h1{
-  margin: 0;
+.row-flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: auto;
+}
+.card-div{
+  margin: 20px auto;
+}
+.navbar-logo{
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  cursor: pointer;
+}
+.cursive{
+  font-family:Georgia, 'Times New Roman', Times, serif
 }

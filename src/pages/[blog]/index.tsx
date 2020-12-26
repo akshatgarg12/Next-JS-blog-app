@@ -1,12 +1,11 @@
 import { GetStaticProps,GetStaticPaths } from "next";
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
-import Container from '@material-ui/core/Container';
-import styles from './blog.module.css';
 import Image from 'next/image';
+import { Container } from "reactstrap";
 
 export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
-  console.log(process.env.VERCEL_URL);
+  console.log(process.env.BASE_URL);
   try{
     const data = await fetch(`${process.env.BASE_URL}/api/blog`,{
       method:"POST",
@@ -57,13 +56,9 @@ export interface BlogProps {
 }
 const Blog: React.FC<BlogProps> = ({content}) => {
   return (
-    <div className={styles.page}>
-      <Container  maxWidth={"md"}>
-        <div>
-        <div dangerouslySetInnerHTML={{__html:content}}></div>
-        </div>
-      </Container>
-    </div>
+        <Container>
+          <div dangerouslySetInnerHTML={{__html:content}}></div>
+        </Container>
   );
 }
  

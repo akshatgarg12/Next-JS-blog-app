@@ -1,11 +1,11 @@
 import { GetStaticProps } from 'next';
-import Card from '../src/components/card';
-import Grid from '@material-ui/core/Grid';
-
+import Card from '../components/Card/index';
+import { Container, Row, Col ,CardColumns,} from 'reactstrap';
 
 export const getStaticProps:GetStaticProps = async () =>{
+  console.log(process.env.BASE_URL)
   try{
-    const data = await fetch(`${process.env.VERCEL_URL}/api/allposts`).then(j => j.json());
+    const data = await fetch(`${process.env.BASE_URL}/api/allposts`).then(j => j.json());
     const posts =  data.map((post) => {
       const postObject = {
         id : post.sys.id,
@@ -15,7 +15,6 @@ export const getStaticProps:GetStaticProps = async () =>{
       }
       return postObject
     })
-   
     return {
       props:{
         posts
@@ -23,6 +22,7 @@ export const getStaticProps:GetStaticProps = async () =>{
       revalidate:10
     }
   }catch(e){
+    console.log(e);
     return {
       props:{
         posts:[]
@@ -34,17 +34,16 @@ export const getStaticProps:GetStaticProps = async () =>{
 
 export default function Home({posts}) {
   return (
-    <div className="grid-div">
-      <Grid item xs={"auto"}>
-        <Grid container justify="center"  spacing={3}>
+    // <div className="grid-div">
+       <Container>
+         <Row sm="1" md="2" lg="3">
           {posts.map((post, index) => {
-          return <div key={index} className="card">
-                 <Card title={post.title} img={post.displayImg} date={post.date} id={post.id} /> 
-              </div>
-          })}
-        </Grid>
-      </Grid>
-      
-    </div>
+              return <Col key={index}>
+                    <Card title={post.title} img={post.displayImg} date={post.date} id={post.id} /> 
+                  </Col>
+            })}
+          </Row>
+        </Container>
+    // </div>
   )
 }
