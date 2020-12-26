@@ -1,4 +1,4 @@
-import MyCard from '../src/components/Card';
+import MyCard from '../src/components/card';
 import { Container, Row, Col } from 'reactstrap';
 
 export const getStaticProps = async () =>{

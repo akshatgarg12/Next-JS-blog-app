@@ -1,6 +1,6 @@
 import '../styles/global.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import MyNavbar from '../src/components/Navbar';
+import MyNavbar from '../src/components/navbar';
 
 
 function MyApp({ Component, pageProps }) {
