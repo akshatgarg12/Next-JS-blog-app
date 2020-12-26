@@ -2,7 +2,7 @@ import React from 'react';
 import { Card, CardBody, Button, CardTitle, CardText, CardImg} from 'reactstrap';
 import {useRouter} from 'next/router';
 
-interface CardProps{
+export interface CardProps{
   id:string,
   img:string,
   title:string,
