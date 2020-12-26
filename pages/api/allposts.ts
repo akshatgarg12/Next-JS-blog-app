@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next"
-const client = require('../../../config/contentful');
+const client = require('../../config/contentful');
+
 
 const allPosts = async (req:NextApiRequest,res:NextApiResponse) =>{
   const data = await client.getEntries({

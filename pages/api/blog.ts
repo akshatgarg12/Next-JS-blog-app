@@ -1,4 +1,4 @@
-const client = require('../../../config/contentful');;
+const client = require('../../config/contentful');;
 import { NextApiRequest, NextApiResponse } from "next"
 
 const getBlog = async (req:NextApiRequest,res:NextApiResponse) =>{
