@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import MyCard from '../src/components/Card';
-import { Container, Row, Col ,CardColumns,} from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 export const getStaticProps:GetStaticProps = async () =>{
   console.log(process.env.BASE_URL)
@@ -34,7 +34,6 @@ export const getStaticProps:GetStaticProps = async () =>{
 
 export default function Home({posts}) {
   return (
-    // <div className="grid-div">
        <Container>
          <Row sm="1" md="2" lg="3">
           {posts.map((post, index) => {
@@ -44,6 +43,5 @@ export default function Home({posts}) {
             })}
           </Row>
         </Container>
-    // </div>
   )
 }
