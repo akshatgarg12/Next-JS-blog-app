@@ -7,7 +7,7 @@ export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
   console.log(process.env.BASE_URL);
   try{
-    const data = await fetch(`${process.env.BASE_URL}/api/blog`,{
+    const data = await fetch(`https://${process.env.VERCEL_URL}/api/blog`,{
       method:"POST",
       headers:{
         'Content-type':'application/json'
