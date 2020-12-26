@@ -1,5 +1,5 @@
 import { GetStaticProps } from 'next';
-import Card from '../src/components/Card';
+import MyCard from '../src/components/Card';
 import { Container, Row, Col ,CardColumns,} from 'reactstrap';
 
 export const getStaticProps:GetStaticProps = async () =>{
@@ -39,7 +39,7 @@ export default function Home({posts}) {
          <Row sm="1" md="2" lg="3">
           {posts.map((post, index) => {
               return <Col key={index}>
-                    <Card title={post.title} img={post.displayImg} date={post.date} id={post.id} /> 
+                    <MyCard title={post.title} img={post.displayImg} date={post.date} id={post.id} /> 
                   </Col>
             })}
           </Row>
