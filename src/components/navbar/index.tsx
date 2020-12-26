@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Collapse,
   Navbar,
@@ -7,37 +7,46 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  NavbarText
+  NavbarText,
+  Button
 } from 'reactstrap';
 import {useRouter} from 'next/router';
+import {ThemeContext} from '../../context/theme';
 
  const MyNavbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   const toggle = () => setIsOpen(!isOpen);
-
+  const {theme,isLight, setIsLight} = useContext(ThemeContext);
   return (
     <div>
-      <Navbar color="light" light expand="md">
+      <Navbar color={isLight?"light":"dark"} light expand="md">
         <NavbarBrand onClick={()=> router.push('/')} 
-        className="navbar-logo">Blogger</NavbarBrand>
+        className={`navbar-logo text-${isLight?"dark":"light"}`}>Blogger</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink>Buy me a beer🍺</NavLink>
+              <NavLink className={`text-${isLight?"dark":"muted"}`}>Buy me a beer🍺</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink>Find me</NavLink>
+              <NavLink className={`text-${isLight?"dark":"muted"}`}>Find me</NavLink>
             </NavItem>
           </Nav>
-          <NavbarText className="cursive">Life goes on..</NavbarText>
+         <Button onClick={()=>{
+           setIsLight(!isLight);
+         }} color={isLight?"dark":"light"}>{isLight?"dark":"light"} Mode</Button>
         </Collapse>
       </Navbar>
+      <style jsx>
+        {
+          `
+            .navbar-logo{
+              color:${theme.headingColor}
+            }
+          `
+        }
+      </style>
     </div>
 
   )

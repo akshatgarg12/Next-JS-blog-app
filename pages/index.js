@@ -2,6 +2,9 @@ import MyCard from '../src/components/card';
 import { Container, Row, Col } from 'reactstrap';
 const fetch = require('node-fetch');
 import {URLS} from '../config/constants';
+import {ThemeContext} from '../src/context/theme';
+import { useContext } from 'react';
+
 export const getStaticProps = async () =>{
   console.log(process.env.VERCEL_URL);
   try{
@@ -29,12 +32,13 @@ export const getStaticProps = async () =>{
       }
     }
   }
-  
 }
 
 export default function Home({posts}) {
+  const {theme} = useContext(ThemeContext);
   return (
-       <Container>
+    <div className="background-div">
+       <Container >
          <Row sm="1" md="2" lg="3">
           {posts.map((post, index) => {
               return <Col key={index}>
@@ -43,5 +47,14 @@ export default function Home({posts}) {
             })}
           </Row>
         </Container>
+        <style jsx>
+          {`
+            .background-div{
+              min-height:100vh;
+              background-color:${theme.backgroundColor}
+            }
+          `}
+        </style>
+      </div>
   )
 }

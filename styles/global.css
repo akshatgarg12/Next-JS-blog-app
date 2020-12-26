@@ -21,6 +21,14 @@ img{
 }
 .card-div{
   margin: 20px auto;
+  height:375px;
+}
+.card img{
+  height:200px;
+  object-fit: cover;
+}
+.card {
+  height:100%;
 }
 .navbar-logo{
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;

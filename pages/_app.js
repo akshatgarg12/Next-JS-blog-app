@@ -1,13 +1,15 @@
 import '../styles/global.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from '../src/components/navbar';
-
+import ThemeContextProvider from '../src/context/theme';
 
 function MyApp({ Component, pageProps }) {
-  return <div>
-          <MyNavbar />
-           <Component {...pageProps} />
-        </div>
+  return <ThemeContextProvider>
+                <div>
+                <MyNavbar />
+                <Component {...pageProps} />
+                </div>
+        </ThemeContextProvider>
 }
 
 export default MyApp

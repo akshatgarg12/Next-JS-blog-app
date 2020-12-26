@@ -3,6 +3,9 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 import Image from 'next/image';
 import { Container } from "reactstrap";
 import {URLS} from '../../config/constants';
+import {ThemeContext} from '../../src/context/theme';
+import { useContext } from "react";
+
 export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
   console.log(process.env.BASE_URL);
@@ -55,10 +58,28 @@ export interface BlogProps {
   content:string  
 }
 const Blog: React.FC<BlogProps> = ({content}) => {
+  const {theme} = useContext(ThemeContext);
   return (
+      <div className="blog-page">
         <Container>
           <div dangerouslySetInnerHTML={{__html:content}}></div>
         </Container>
+        <style jsx>
+          {
+            `
+              .blog-page{
+                padding:30px;
+                min-height:100vh;
+                background-color: ${theme.backgroundColor};
+                color:${theme.textColor}
+              }
+              h1{
+                color:${theme.headingColor}
+              }
+            `
+          }
+        </style>
+      </div>
   );
 }
  
