@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export const getStaticProps : GetStaticProps = async (context) => {
   const id = context?.params?.blog || null
-  console.log(process.env.BASE_URL);
+  console.log(process.env.VERCEL_URL);
   try{
     const data = await fetch(`${process.env.BASE_URL}/api/blog`,{
       method:"POST",

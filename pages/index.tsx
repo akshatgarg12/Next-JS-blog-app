@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 
 export const getStaticProps:GetStaticProps = async () =>{
   try{
-    const data = await fetch(`${process.env.BASE_URL}/api/allposts`).then(j => j.json());
+    const data = await fetch(`${process.env.VERCEL_URL}/api/allposts`).then(j => j.json());
     const posts =  data.map((post) => {
       const postObject = {
         id : post.sys.id,
